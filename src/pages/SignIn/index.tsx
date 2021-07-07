@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
@@ -20,14 +20,26 @@ import logoFacebook from '../../assets/facebook.png';
 import Button from '../../components/Button';
 
 const SignIn: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const navigation = useNavigation();
+
+  function handleLogin() {
+    console.log(email, password);
+    const data = {
+      email,
+      password,
+    };
+    console.log('data => ', data);
+  }
 
   return (
     <Container>
       <Image style={{marginTop: 62.2, marginBottom: 29.82}} source={logoImg} />
 
-      <Input placeholder="Email" />
-      <Input placeholder="Senha" secureTextEntry />
+      <Input placeholder="Email" onChangeText={setEmail} />
+      <Input placeholder="Senha" secureTextEntry onChangeText={setPassword} />
 
       <ForgotPassword
         onPress={() => {
@@ -36,12 +48,7 @@ const SignIn: React.FC = () => {
         <ForgotPasswordText>Esqueceu a senha</ForgotPasswordText>
       </ForgotPassword>
 
-      <Button
-        title="Login"
-        onPress={() => {
-          navigation.navigate('Home');
-        }}
-      />
+      <Button title="Login" onPress={handleLogin} />
 
       <TextLoginSocial>Ou Login com</TextLoginSocial>
       <Image source={logoFacebook} />

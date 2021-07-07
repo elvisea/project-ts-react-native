@@ -1,17 +1,13 @@
 import styled from 'styled-components/native';
+import {TextInput} from 'react-native';
 
-export const Container = styled.View`
+export const Container = styled(TextInput)`
   width: 100%;
-  height: 45px;
+  font-size: 14px;
+  color: ${({theme}) => theme.colors.color_text};
   background-color: ${({theme}) => theme.colors.shape};
   border-radius: 8px;
   margin-bottom: 8px;
-  padding: 0 10px;
-`;
-
-export const TextInput = styled.TextInput`
-  flex: 1;
-  color: ${({theme}) => theme.colors.color_text};
-  font-size: 14px;
   font-family: ${({theme}) => theme.fonts.regular};
+  height: 45px;
 `;

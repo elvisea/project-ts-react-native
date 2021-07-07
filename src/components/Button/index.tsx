@@ -7,12 +7,12 @@ interface Props extends RectButtonProperties {
   title: string;
 }
 
-const Button: React.FC<Props> = ({title, ...rest}: Props) => {
+export function Button({title, ...rest}: Props) {
   return (
     <Container {...rest}>
       <Title>{title}</Title>
     </Container>
   );
-};
+}
 
 export default Button;

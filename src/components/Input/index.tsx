@@ -1,22 +1,10 @@
 import React from 'react';
 import {TextInputProps} from 'react-native';
 
-import {Container, TextInput} from './styles';
+import {Container} from './styles';
 
-interface InputProps extends TextInputProps {
-  name?: string;
-  icon?: string;
-}
-
-const Input: React.FC<InputProps> = ({name, icon, ...rest}) => {
-  return (
-    <Container>
-      <TextInput
-        placeholderTextColor="#787878"
-        {...rest}
-      />
-    </Container>
-  );
+const Input: React.FC<TextInputProps> = ({...rest}) => {
+  return <Container placeholderTextColor="#787878" {...rest} />;
 };
 
 export default Input;
